@@ -57,3 +57,26 @@ openssl dgst -sha256 -verify publica.pem -signature firma.bin vpsito_backup.img
 openssl asn1parse -inform DER -in firma.bin
 
 ![alt text](image.png)
+
+LA OTRA PERSONA PARA COMPROBARLO QUE NO ESTA CAMBIADO NI ALTERADO NECESITARIA:
+
+vpsito_backup.img → el archivo original firmado.
+
+firma.bin → el archivo de la firma digital.
+
+publica.pem → la clave pública del firmante.
+
+EJECUTARIA ESTE COMANDO:
+
+openssl dgst -sha256 -verify publica.pem -signature firma.bin vpsito_backup.img
+
+
+
+Y LE SALDRIA:
+
+Verified OK
+
+
+Y SI SE HA MODIFICADO SERIA
+
+Verification Failure
